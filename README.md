@@ -87,11 +87,11 @@ Asegúrate de que Docker esté instalado y en funcionamiento en tu máquina. Lue
 ```bash
 docker-compose up --build ```
 
-http://localhost:8000/swagger/
+- http://localhost:8000/swagger/
 
 
 
 
 
 
-Este archivo `README.md` debería proporcionar una guía clara para configurar y ejecutar tu proyecto, así como para acceder a la base de datos y la interfaz de administración.
+- Este archivo `README.md` debería proporcionar una guía clara para configurar y ejecutar tu proyecto, así como para acceder a la base de datos y la interfaz de administración.
