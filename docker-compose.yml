@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  # localhost:
+  #   image: mysql
+  #   container_name: MYSQL
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 123456789
+  #     MYSQL_DATABASE: inversiones
+  #   ports:
+  #     - "3307:3306"
+
+  calculadora:
+    build:
+      context: .
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mysql://root:123456789@host.docker.internal:3306/inversiones
