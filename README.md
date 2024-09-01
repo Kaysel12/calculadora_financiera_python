@@ -93,4 +93,4 @@ Asegúrate de que Docker esté instalado y en funcionamiento en tu máquina. Lue
 
 
 
-- Este archivo `README.md` debería proporcionar una guía clara para configurar y ejecutar tu proyecto, así como para acceder a la base de datos y la interfaz de administración.
+Este archivo `README.md` debería proporcionar una guía clara para configurar y ejecutar tu proyecto, así como para acceder a la base de datos y la interfaz de administración.
