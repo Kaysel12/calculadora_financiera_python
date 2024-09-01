@@ -84,8 +84,7 @@ Para acceder al panel de administración, visita:
 
 Asegúrate de que Docker esté instalado y en funcionamiento en tu máquina. Luego, ejecuta el siguiente comando para construir e iniciar los contenedores:
 
-```bash
-docker-compose up --build‘‘‘
+```bash docker-compose up --build```
 
 - http://localhost:8000/swagger/
 
