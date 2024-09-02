@@ -161,7 +161,6 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
-
     #   title="API de Inversiones",
     #   default_version='v1',
     #   description="API para calcular fechas de inversión en un puesto de bolsa",
