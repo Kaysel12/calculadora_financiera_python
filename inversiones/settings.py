@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -164,3 +167,5 @@ SPECTACULAR_SETTINGS = {
     #   description="API para calcular fechas de inversión en un puesto de bolsa",
     #   terms_of_service="https://www.google.com/policies/terms/",
     #   license=openapi.License(name="BSD License"),
+
+CORS_ALLOW_ALL_ORIGINS = True
