@@ -8,6 +8,7 @@ from .models import Producto, DiaFeriado
 from .serializers import ProductoSerializer, CalculoInversionSerializer
 from .services import InversionService
 from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiResponse
+from django.shortcuts import redirect
 
 class ProductoListView(APIView):
     permission_classes = [IsAuthenticated]
@@ -43,3 +44,7 @@ class CalculoInversionView(APIView):
             resultado = InversionService.calcular_fechas(serializer.validated_data)
             return Response(resultado, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class RedirectToSwaggerView(APIView):
+    def redirectSwagger(request):
+        return redirect('/swagger/')
