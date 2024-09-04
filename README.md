@@ -116,7 +116,7 @@ productos = [
 ]
 
 for data in productos:
-    Producto.objects.create(**data)```
+    Producto.objects.create(**data)
 
 
 ```*Y luego dar enter. con eso tenemos para que el proyecto funcione.```
