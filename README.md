@@ -95,9 +95,12 @@ Asegúrate de que Docker esté instalado y en funcionamiento en tu máquina. Lue
 - Luego de esto, se agregaran datos de los productos con los siguientes comandos en la terminal:
 
 ```docker-compose exec calculadora python manage.py shell```
+
 - Cuando habra el shell, copiar y pegar lo siguiente:
 
-```from calculadora.models import Producto
+```
+
+from calculadora.models import Producto
 
 productos = [
     {'nombre': 'Plazo Fijo a 30 días', 'dias_operativos_in': 2, 'dias_operativos_out': 1, 'dias_reinversion_in': 1, 'dias_reinversion_out': 1, 'hora_operativa': '09:00:00'},
@@ -116,8 +119,5 @@ for data in productos:
     Producto.objects.create(**data)```
 
 
-*Y luego dar enter. con eso tenemos para que el proyecto funcione.
+```*Y luego dar enter. con eso tenemos para que el proyecto funcione.
 
-
-
-Este archivo `README.md` debería proporcionar una guía clara para configurar y ejecutar tu proyecto, así como para acceder a la base de datos y la interfaz de administración.
