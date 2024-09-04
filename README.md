@@ -90,14 +90,14 @@ Asegúrate de que Docker esté instalado y en funcionamiento en tu máquina. Lue
 - También, para crear el superusuario debes entrar a la terminal del proyecto una vez este corriendo en el docker y escribir lo siguiente:
 
 ```docker-compose exec calculadora python manage.py createsuperuser```
-Ahí escribir el super usuario **username: admin** y **password: admin**
+- Ahí escribir el super usuario **username: admin** y **password: admin**
 
 - Luego de esto, se agregaran datos de los productos con los siguientes comandos en la terminal:
 
 ```docker-compose exec calculadora python manage.py shell```
-Cuando habra el shell, copiar y pegar lo siguiente
+- Cuando habra el shell, copiar y pegar lo siguiente
 
-from calculadora.models import Producto  # Reemplaza `Producto` con el nombre de tu modelo
+from calculadora.models import Producto
 
 - productos = [
     {'nombre': 'Plazo Fijo a 30 días', 'dias_operativos_in': 2, 'dias_operativos_out': 1, 'dias_reinversion_in': 1, 'dias_reinversion_out': 1, 'hora_operativa': '09:00:00'},
