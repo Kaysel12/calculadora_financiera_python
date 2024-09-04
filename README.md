@@ -67,8 +67,7 @@ Para trabajar con la base de datos MySQL, debes importar los archivos de base de
 
 1. **Abrir MySQL Workbench**.
 2. **Conectar a tu servidor MySQL**. Asegúrate de que el contenedor MySQL esté corriendo si lo estás utilizando.
-3. **Crear una nueva base de datos** llamada `inversiones` si no existe aún.
-4. **Importar los archivos SQL**. Ve a `Server > Data Import` y selecciona `Import from Self-Contained File`. Elige los archivos `.sql` que se encuentran en `inversiones_database` y cárgalos en la base de datos `inversiones`.
+3. **Importar los archivos SQL**. Ve a `Server > Data Import` y selecciona `Import from Dump Project Folder`. Deberán tener un archivo llamado dumps, este es un ejemplo: `/Users/kayselnunez/dumps` para pasar el archivo `inversiones_database` en ese espacio y poder hacer las importaciones. Elige los archivos `.sql` que se encuentran en `inversiones_database` y cárgalos en la base de datos `inversiones`.
 
 ### Acceso al Panel de Administración
 
