@@ -1,6 +1,45 @@
 version: '3.8'
 
 services:
+
+  calculadora:
+    build:
+      context: .
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=inversiones.settings
+  # calculadora:
+  #   build:
+  #     context: .
+  #   command: python manage.py runserver 0.0.0.0:8000
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - DATABASE_URL=mysql://root:123456789@host.docker.internal:3306/inversiones
+
+  # mysql:
+  #   image: mysql:5.7
+  #   container_name: mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 123456789
+  #     MYSQL_DATABASE: inversiones
+  #   ports:
+  #     - "3306:3306"
+
+  # calculadora:
+  #   build:
+  #     context: .
+  #   command: python manage.py runserver 0.0.0.0:8000
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - DATABASE_URL=mysql://root:123456789@mysql:3306/inversiones
+  #   depends_on:
+  #     - mysql
+
+
   # localhost:
   #   image: mysql
   #   container_name: MYSQL
@@ -10,11 +49,35 @@ services:
   #   ports:
   #     - "3307:3306"
 
-  calculadora:
-    build:
-      context: .
-    command: python manage.py runserver 0.0.0.0:8000
-    ports:
-      - "8000:8000"
-    environment:
-      - DATABASE_URL=mysql://root:123456789@host.docker.internal:3306/inversiones
+  # calculadora:
+  #   build:
+  #     context: .
+  #   command: python manage.py runserver 0.0.0.0:8000
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - DATABASE_URL=mysql://root:123456789@host.docker.internal:3306/inversiones
+
+  # mysql:
+  #   container_name: mysql
+  #   platform: linux/x84_64
+  #   build: ./mysql/
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     -./mysql/db:/docker-entrypoint-initdb.d
+  #     -./mysql/conf.d:/etc/mysql/conf.d
+  #   env_file:
+  #     - ./mysql/local.env
+
+  # calculadora:
+  #   depends_on:
+  #     - mysql
+  #   build:
+  #     context: .
+  #   platform: linux/x84_64
+  #   command: python manage.py runserver 0.0.0.0:8000
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - django.db.backends.sqlite3
