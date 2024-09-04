@@ -95,11 +95,10 @@ Asegúrate de que Docker esté instalado y en funcionamiento en tu máquina. Lue
 - Luego de esto, se agregaran datos de los productos con los siguientes comandos en la terminal:
 
 ```docker-compose exec calculadora python manage.py shell```
-- Cuando habra el shell, copiar y pegar lo siguiente
+- Cuando habra el shell, copiar y pegar lo siguiente:
 
-from calculadora.models import Producto
-
-- productos = [
+"from calculadora.models import Producto
+productos = [
     {'nombre': 'Plazo Fijo a 30 días', 'dias_operativos_in': 2, 'dias_operativos_out': 1, 'dias_reinversion_in': 1, 'dias_reinversion_out': 1, 'hora_operativa': '09:00:00'},
     {'nombre': 'Certificado de Depósito 90 días', 'dias_operativos_in': 3, 'dias_operativos_out': 2, 'dias_reinversion_in': 2, 'dias_reinversion_out': 2, 'hora_operativa': '10:00:00'},
     {'nombre': 'Fondo Mutuo Conservador', 'dias_operativos_in': 1, 'dias_operativos_out': 1, 'dias_reinversion_in': 1, 'dias_reinversion_out': 1, 'hora_operativa': '14:00:00'},
@@ -114,7 +113,7 @@ from calculadora.models import Producto
 
 for data in productos:
     Producto.objects.create(**data)
-
+"
 
 *Y luego dar enter. con eso tenemos para que el proyecto funcione.
 
