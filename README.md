@@ -94,7 +94,7 @@ Asegúrate de que Docker esté instalado y en funcionamiento en tu máquina. Lue
 
 - Luego de esto, se agregaran datos de los productos con los siguientes comandos en la terminal:
 
-```docker-compose exec calculadora python manage.py shell```
+```docker-compose exec <nombre de la imagen> python manage.py shell```
 
 - Cuando habra el shell, copiar y pegar lo siguiente:
 
