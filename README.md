@@ -87,8 +87,36 @@ Asegúrate de que Docker esté instalado y en funcionamiento en tu máquina. Lue
 
 - http://localhost:8000/swagger/
 
+- También, para crear el superusuario debes entrar a la terminal del proyecto una vez este corriendo en el docker y escribir lo siguiente:
+
+```docker-compose exec calculadora python manage.py createsuperuser```
+Ahí escribir el super usuario **username: admin** y **password: admin**
+
+- Luego de esto, se agregaran datos de los productos con los siguientes comandos en la terminal:
+
+```docker-compose exec calculadora python manage.py shell```
+Cuando habra el shell, copiar y pegar lo siguiente
+
+from calculadora.models import Producto  # Reemplaza `Producto` con el nombre de tu modelo
+
+- productos = [
+    {'nombre': 'Plazo Fijo a 30 días', 'dias_operativos_in': 2, 'dias_operativos_out': 1, 'dias_reinversion_in': 1, 'dias_reinversion_out': 1, 'hora_operativa': '09:00:00'},
+    {'nombre': 'Certificado de Depósito 90 días', 'dias_operativos_in': 3, 'dias_operativos_out': 2, 'dias_reinversion_in': 2, 'dias_reinversion_out': 2, 'hora_operativa': '10:00:00'},
+    {'nombre': 'Fondo Mutuo Conservador', 'dias_operativos_in': 1, 'dias_operativos_out': 1, 'dias_reinversion_in': 1, 'dias_reinversion_out': 1, 'hora_operativa': '14:00:00'},
+    {'nombre': 'Letras del Tesoro a 180 días', 'dias_operativos_in': 3, 'dias_operativos_out': 3, 'dias_reinversion_in': 0, 'dias_reinversion_out': 0, 'hora_operativa': '11:00:00'},
+    {'nombre': 'Bono Corporativo a 1 año', 'dias_operativos_in': 5, 'dias_operativos_out': 5, 'dias_reinversion_in': 0, 'dias_reinversion_out': 0, 'hora_operativa': '12:00:00'},
+    {'nombre': 'Depósito a Plazo a 60 días', 'dias_operativos_in': 2, 'dias_operativos_out': 1, 'dias_reinversion_in': 1, 'dias_reinversion_out': 1, 'hora_operativa': '09:30:00'},
+    {'nombre': 'Fondo de Inversión Agresivo', 'dias_operativos_in': 1, 'dias_operativos_out': 2, 'dias_reinversion_in': 2, 'dias_reinversion_out': 2, 'hora_operativa': '15:00:00'},
+    {'nombre': 'Acciones Preferentes', 'dias_operativos_in': 3, 'dias_operativos_out': 3, 'dias_reinversion_in': 0, 'dias_reinversion_out': 0, 'hora_operativa': '13:00:00'},
+    {'nombre': 'Pagaré Bancario a 90 días', 'dias_operativos_in': 2, 'dias_operativos_out': 2, 'dias_reinversion_in': 1, 'dias_reinversion_out': 1, 'hora_operativa': '10:30:00'},
+    {'nombre': 'Obligación Subordinada a 2 años', 'dias_operativos_in': 4, 'dias_operativos_out': 4, 'dias_reinversion_in': 0, 'dias_reinversion_out': 0, 'hora_operativa': '11:30:00'}
+]
+
+for data in productos:
+    Producto.objects.create(**data)
 
 
+*Y luego dar enter. con eso tenemos para que el proyecto funcione.
 
 
 
