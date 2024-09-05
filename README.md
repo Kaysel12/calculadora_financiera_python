@@ -82,19 +82,20 @@ Para acceder al panel de administración, visita:
 ### Ejecutar el Proyecto con Docker
 
 Asegúrate de que Docker esté instalado y en funcionamiento en tu máquina. Luego, ejecuta el siguiente comando para construir e iniciar los contenedores:
+y que el nombre del contenedor (desplegando la aplicación) se llame "calculadora"
 
 ```docker-compose up --build```
 
 - http://localhost:8000/swagger/
 
-- También, para crear el superusuario debes entrar a la terminal del proyecto una vez este corriendo en el docker y escribir lo siguiente:
+También, para crear el superusuario debes entrar a la terminal del proyecto una vez este corriendo en el docker y escribir lo siguiente:
 
-```docker-compose exec <container_name: calculadora o si tienes otro nombre> python manage.py createsuperuser```
+```docker-compose exec calculadora python manage.py createsuperuser```
 - Ahí escribir el super usuario **username: admin** y **password: admin**
 
-- Luego de esto, se agregaran datos de los productos con los siguientes comandos en la terminal:
+Luego de esto, se agregaran datos de los productos con los siguientes comandos en la terminal:
 
-```docker-compose exec <container_name: calculadora o si tienes otro nombre> python manage.py shell```
+```docker-compose exec calculadora python manage.py shell```
 
 - Cuando habra el shell, copiar y pegar lo siguiente:
 
