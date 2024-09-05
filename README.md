@@ -71,7 +71,7 @@ Para trabajar con la base de datos MySQL, debes importar los archivos de base de
 
 ### Acceso al Panel de Administración
 
-El superusuario para acceder al panel de administración de Django se puede crear con las siguientes credenciales predeterminadas:
+El superusuario para acceder al panel de administración de Django se puede crear con las siguientes credenciales:
 
 - **Username**: `admin`
 - **Password**: `admin`
