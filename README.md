@@ -61,7 +61,7 @@ Este proyecto incluye [DRF Spectacular](https://drf-spectacular.readthedocs.io/e
     - `fecha_fin`: Fecha calculada de fin.
     - `plazo_real`: Plazo real en días.
 
-### Importación de la Base de Datos
+### Importación de la Base de Datos (Si no se tiene Mysql Workbench obviar este paso)
 
 Para trabajar con la base de datos MySQL, debes importar los archivos de base de datos que se encuentran en la carpeta `inversiones_database`. Sigue estos pasos:
 
