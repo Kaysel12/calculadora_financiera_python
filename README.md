@@ -97,7 +97,7 @@ Luego de esto, se agregaran datos de los productos con los siguientes comandos e
 
 ```docker-compose exec calculadora python manage.py shell```
 
-- Cuando habra el shell, copiar y pegar lo siguiente:
+- Cuando habra el shell, copiar y pegar lo siguiente; Luego dar enter:
 
 ```
 
@@ -118,7 +118,4 @@ productos = [
 
 for data in productos:
     Producto.objects.create(**data)
-
-
-*Y luego dar enter. con eso tenemos para que el proyecto funcione.```
 
