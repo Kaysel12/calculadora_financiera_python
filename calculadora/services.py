@@ -19,6 +19,8 @@ class InversionService:
         hora_operativa = producto.hora_operativa
         es_dentro_horario = fecha_creacion.time() <= hora_operativa
 
+        fecha_inicio = InversionService.calcular_fecha_inicio(fecha_creacion)
+
         if en_reinversion:
             if es_dentro_horario:
                 dias_a_sumar = producto.dias_reinversion_in
@@ -30,12 +32,15 @@ class InversionService:
             else:
                 dias_a_sumar = producto.dias_operativos_out
 
-        fecha_inicio = fecha_creacion + timedelta(days=dias_a_sumar)
+        fecha_inicio = fecha_inicio + timedelta(days=dias_a_sumar)
+
+
         fecha_fin = InversionService.calcular_fecha_fin(fecha_inicio, plazo)
 
         return {
             "producto": producto_id,
             "plazo": plazo,
+            "fecha funcional": fecha_creacion,
             "fecha_inicio": fecha_inicio,
             "fecha_fin": fecha_fin,
             "plazo_real": (fecha_fin - fecha_inicio).days
@@ -50,3 +55,13 @@ class InversionService:
             fecha_fin += timedelta(days=1)
 
         return fecha_fin
+
+
+    @staticmethod
+    def calcular_fecha_inicio(fecha_inicio):
+        fecha_inicio = fecha_inicio
+
+        while fecha_inicio.weekday() >= 5 or DiaFeriado.objects.filter(fecha=fecha_inicio.date()).exists():
+            fecha_inicio += timedelta(days=1)
+
+        return fecha_inicio

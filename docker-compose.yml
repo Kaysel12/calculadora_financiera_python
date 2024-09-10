@@ -1,15 +1,44 @@
 version: '3.8'
 
 services:
+  db:
+    hostname: 'db'
+    image: mysql:latest
+    container_name: mysql_container
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456789
+      MYSQL_DATABASE: inversiones
+      MYSQL_PASSWORD: 123456789
+    volumes:
+      - ./inversiones_database:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   calculadora:
+    container_name: calculadora
     build:
       context: .
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
-    environment:
-      - DJANGO_SETTINGS_MODULE=inversiones.settings
+    depends_on:
+      db:
+        condition: service_healthy
+
+      # - DATABASE_URL=mysql://root:123456789@db:33060/inversiones
+      # - DJANGO_SETTINGS_MODULE=inversiones.settings
+    # environment:
+    #   DATABASE_URL: mysql://root:123456789@db:3306/inversiones
+    # depends_on:
+    #   - db
+    # environment:
+    #   - DJANGO_SETTINGS_MODULE=inversiones.settings
+
   # calculadora:
   #   build:
   #     context: .
