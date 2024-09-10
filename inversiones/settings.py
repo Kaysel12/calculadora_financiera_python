@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'inversiones',
         'USER': 'root',
         'PASSWORD': '123456789',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
